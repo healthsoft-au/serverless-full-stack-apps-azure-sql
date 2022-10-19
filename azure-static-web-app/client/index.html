@@ -44,7 +44,7 @@
 
         // NISM
         var intervalId = window.setInterval(function(){
-            init()
+            updateMap();
         }, 15000);
 
         var styles = [
@@ -59,8 +59,25 @@
             })
         ];
 
+        // Get date function
+        function uodateMap() {
+
+            // Sample URL: 
+            // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
+            const params = new URLSearchParams(location.search);
+            const rid = params.get('rid');
+            const gid = params.get('gid');
+            const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
+            $.getJSON(apiUrl, data => {
+                //console.log(data);
+                plotWKT(data);                
+            });
+
+        }
+
         // Map function
-        function init() {           
+        function init() { 
+     
             raster = new ol.layer.Tile({
                 source: new ol.source.OSM()
             });
@@ -73,17 +90,9 @@
                     zoom: 2
                 })
             });
+            
+            updateMap();
 
-            // Sample URL: 
-            // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
-            const params = new URLSearchParams(location.search);
-            const rid = params.get('rid');
-            const gid = params.get('gid');
-            const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
-            $.getJSON(apiUrl, data => {
-                //console.log(data);
-                plotWKT(data);                
-            });
         }
 
         function plotWKT(data) {
