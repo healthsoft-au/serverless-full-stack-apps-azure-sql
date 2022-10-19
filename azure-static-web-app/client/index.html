@@ -62,6 +62,8 @@
         // Get date function
         function updateMap() {
 
+            $('#date').replaceWith(new Date());
+
             // Sample URL: 
             // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
             const params = new URLSearchParams(location.search);
@@ -73,7 +75,6 @@
                 plotWKT(data);                
             });
 
-            $('#date').replaceWith(new Date());
 
         }
 
