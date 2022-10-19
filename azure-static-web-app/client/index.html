@@ -42,9 +42,12 @@
             width: 2
         });
 
+        var now = moment().format("dddd, MMMM Do, YYYY, h:mm:ss A");
+
         // NISM
         var intervalId = window.setInterval(function(){
             updateMap();
+
         }, 15000);
 
         var styles = [
@@ -72,6 +75,8 @@
                 //console.log(data);
                 plotWKT(data);                
             });
+            
+            $('#date').append(now);
 
         }
 
@@ -148,6 +153,9 @@
         <div class="span12">
             <div id="map" class="map" style="z-index: 0"></div>
         </div>
+    </div>
+    <div>
+        <span id="date"></span>
     </div>
 </body>
 
