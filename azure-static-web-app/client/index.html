@@ -42,6 +42,11 @@
             width: 2
         });
 
+        // NISM
+        var intervalId = window.setInterval(function(){
+            init()
+        }, 15000);
+
         var styles = [
             new ol.style.Style({
                 image: new ol.style.Circle({
@@ -54,6 +59,7 @@
             })
         ];
 
+        // Map function
         function init() {           
             raster = new ol.layer.Tile({
                 source: new ol.source.OSM()
