@@ -126,7 +126,9 @@
                 source: new ol.source.Vector({ features: features }),
                 style: styles
             });
-            map.updateMap(vector);
+
+            map.clear();
+            map.addLayer(vector);
             
             derived_feature = f2 ?? f1;
             extent = derived_feature.getGeometry().getExtent();
