@@ -42,7 +42,7 @@
             width: 2
         });
 
-        var now = moment().format("dddd, MMMM Do, YYYY, h:mm:ss A");
+        var now = new Date();
 
         // NISM
         var intervalId = window.setInterval(function(){
@@ -154,7 +154,7 @@
             <div id="map" class="map" style="z-index: 0"></div>
         </div>
         <div>
-            <label id="date">[Date]</label>
+            <label id="date"></label>
         </div>
     </div>
 </body>
