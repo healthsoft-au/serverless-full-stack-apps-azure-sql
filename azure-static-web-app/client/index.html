@@ -42,8 +42,6 @@
             width: 2
         });
 
-        var now = new Date();
-
         // NISM
         var intervalId = window.setInterval(function(){
             updateMap();
@@ -76,7 +74,7 @@
                 plotWKT(data);                
             });
 
-            $('#date').append(now);
+            $('#date').append(new Date());
 
         }
 
@@ -154,7 +152,7 @@
             <div id="map" class="map" style="z-index: 0"></div>
         </div>
         <div>
-            <label id="date"></label>
+            <span id="date"></span>
         </div>
     </div>
 </body>
