@@ -45,7 +45,6 @@
         // NISM
         var intervalId = window.setInterval(function(){
             updateMap();
-
         }, 15000);
 
         var styles = [
@@ -127,7 +126,7 @@
                 source: new ol.source.Vector({ features: features }),
                 style: styles
             });
-            map.addLayer(vector);
+            map.updateMap(vector);
             
             derived_feature = f2 ?? f1;
             extent = derived_feature.getGeometry().getExtent();
